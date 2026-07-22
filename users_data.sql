@@ -1,0 +1,37 @@
+-- MySQL dump 10.13  Distrib 8.0.46, for Win64 (x86_64)
+--
+-- Host: localhost    Database: ita_portal
+-- ------------------------------------------------------
+-- Server version	8.0.46
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Priya Sharma','priya@initus.co.in','$2b$10$OSOBdKioKIo7qPDCpH11Rect3JkPo2OPcf9MMKraITOgK0U72Gdtq','ta','active','2026-06-30 17:44:58','2026-07-03 07:16:16'),(2,'Rahul Menon','rahul@initus.co.in','$2b$10$OSOBdKioKIo7qPDCpH11Rect3JkPo2OPcf9MMKraITOgK0U72Gdtq','ta','active','2026-06-30 17:44:58','2026-06-30 18:43:50'),(3,'Sneha Das','sneha@initus.co.in','$2b$10$OSOBdKioKIo7qPDCpH11Rect3JkPo2OPcf9MMKraITOgK0U72Gdtq','ta','active','2026-06-30 17:44:58','2026-06-30 18:43:50'),(6,'Admin ITA','admin@initus.co.in','$2b$10$Az.zbq9H3FCax2WTYGd9TOTiEHEkjA0OAxbYXfHYdYYs.yBvRhmHS','admin','active','2026-07-03 11:53:17','2026-07-03 11:53:17'),(7,'ronnarajesh','ronnna@initus.co.in','$2b$10$ibQ2yfNpc2NT12EAfaiMAenTdgsT8HIv9bepSeheTMUn9UEpI1yf2','ta','active','2026-07-03 12:08:42','2026-07-03 12:08:42'),(9,'ananiah','ananiah@initus.in','$2b$10$yi4IvlYayD/rrgo0jfruUu5ArveSjSky35Urk5j1oAz6ZqoJn9e4q','ta','inactive','2026-07-07 09:46:39','2026-07-07 09:47:17');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2026-07-12 22:02:36
