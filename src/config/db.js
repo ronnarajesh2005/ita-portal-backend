@@ -9,18 +9,18 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  // Local MySQL auto-generates a self-signed SSL cert on install, and
-  // mysql2 can attempt to negotiate SSL automatically even with no ssl
-  // option set, then fail verifying that self-signed cert. Explicitly
-  // disabling SSL avoids that for local dev.
-  //
-  // When switching back to Aiven for deployment, replace the line below
-  // with the commented-out block underneath it (Aiven requires SSL).
-  ssl: false,
-  // ssl: {
-  //   ca: fs.readFileSync(path.join(__dirname, '..', '..', 'ca.pem')),
-  //   rejectUnauthorized: true,
-  // },
+  // SSL is auto-selected by environment:
+  //  - Production (Render → Aiven): Aiven requires SSL, verified against
+  //    its CA cert (ca.pem lives at the backend repo root).
+  //  - Development (local MySQL): SSL off — local MySQL's self-signed cert
+  //    would otherwise fail verification.
+  // Render must set NODE_ENV=production for the Aiven branch to apply.
+  ssl: process.env.NODE_ENV === 'production'
+    ? {
+        ca: fs.readFileSync(path.join(__dirname, '..', '..', 'ca.pem')),
+        rejectUnauthorized: true,
+      }
+    : false,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,

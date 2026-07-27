@@ -43,6 +43,7 @@ app.use('/reports', require('./routes/reports.routes'));
 app.use('/dashboard', require('./routes/dashboard.routes'));
 app.use('/ai', require('./routes/ai.routes'));
 app.use('/notifications', require('./routes/notifications.routes'));
+app.use('/conversations', require('./routes/conversations.routes'));
 
 app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Route not found' });

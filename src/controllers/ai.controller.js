@@ -35,11 +35,14 @@ async function gatherReportContext(user) {
   const pipelineCounts = {};
   pipelineRows.forEach((r) => { pipelineCounts[r.pipeline_stage] = Number(r.cnt); });
 
-  const jrScopeClause = isAdmin ? '' : 'AND JSON_CONTAINS(assigned_ta_ids, CAST(? AS JSON))';
+  // Qualify with the `jr` alias: the stalledJRs query below joins `clients`,
+  // which also has an `assigned_ta_ids` column, so an unqualified reference
+  // is ambiguous and MySQL rejects it. Both queries below alias the table jr.
+  const jrScopeClause = isAdmin ? '' : 'AND JSON_CONTAINS(jr.assigned_ta_ids, CAST(? AS JSON))';
   const jrScopeParams = isAdmin ? [] : [taId];
 
   const [[{ openJRs }]] = await pool.query(
-    `SELECT COUNT(*) as openJRs FROM job_requisitions WHERE status = 'open' AND is_deleted = FALSE ${jrScopeClause}`,
+    `SELECT COUNT(*) as openJRs FROM job_requisitions jr WHERE status = 'open' AND is_deleted = FALSE ${jrScopeClause}`,
     jrScopeParams
   );
 
